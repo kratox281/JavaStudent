@@ -10,21 +10,24 @@ public class Automovil {
     private int Potencia;
     private int Velocidad;
     private int VelocidadMaxima;
-    private int Capacidad;
+    private int Capacidad; //gente que cabe en el coche
     private double Deposito;
     private double CapacidadDeposito;
-    private int pasajeros;   
+    private int pasajeros;
     private boolean Arrancado;
 
-
-    public Automovil(String matricula, int capacidad, int vmax, double capmax){
+    public Automovil(String matricula, int capacidad, int vmax, double capmax) {
         this.Matrícula = matricula;
         this.Capacidad = capacidad;
         this.VelocidadMaxima = vmax;
         this.CapacidadDeposito = capmax;
     }
 
-    public Automovil(){
+    public Automovil() {
+        System.out.println("Introduce la marca");
+        this.Marca  = tc.nextLine();
+        System.out.println("Introduce el modelo");
+        this.Modelo  = tc.nextLine();
         System.out.println("Introduce la matricula");
         this.Matrícula = tc.nextLine();
         System.out.println("Introduce las personas que caben");
@@ -33,118 +36,175 @@ public class Automovil {
         this.VelocidadMaxima = tc.nextInt();
         System.out.println("Introduce la capacidad del deposito");
         this.CapacidadDeposito = tc.nextDouble();
+        this.Velocidad = 0;
+        this.pasajeros = 0;
+        this.Deposito = this.CapacidadDeposito;
+        this.Arrancado = false;
+        
     }
 
-    public void setMatricula(){
+    public void setMatricula() {
         this.Matrícula = tc.nextLine();
     }
-    public void setMarca(){
+
+    public void setMarca() {
         this.Marca = tc.nextLine();
     }
-    public void setModelo(){
+
+    public void setModelo() {
         this.Modelo = tc.nextLine();
     }
-    public void setPotencia(){
+
+    public void setPotencia() {
         this.Potencia = tc.nextInt();
     }
-    public void setVelocidad(){
+
+    public void setVelocidad() {
         this.Velocidad = tc.nextInt();
     }
-    public void setVelocidadMaxima(){
+
+    public void setVelocidadMaxima() {
         this.VelocidadMaxima = tc.nextInt();
     }
-    public void setCapacidad(){
+
+    public void setCapacidad() {
         this.Capacidad = tc.nextInt();
     }
-    public void setDeposito(){
+
+    public void setDeposito() {
         this.Deposito = tc.nextDouble();
     }
-    public void setCapacidadDeposito(){
+
+    public void setCapacidadDeposito() {
         this.CapacidadDeposito = tc.nextDouble();
     }
-    public void setArrancado(){
+
+    public void setArrancado() {
         this.Arrancado = tc.nextBoolean();
     }
 
-    public String getMatricula(){
+    public String getMatricula() {
         return this.Matrícula;
     }
-    public String getMarca(){
+
+    public String getMarca() {
         return this.Marca;
     }
-    
-    public String getModelo(){
+
+    public String getModelo() {
         return this.Modelo;
     }
-    public int getPotencia(){
+
+    public int getPotencia() {
         return this.Potencia;
     }
-    public int getVelocidad(){
+
+    public int getVelocidad() {
         return this.Velocidad;
     }
-    public int getVelocidadMaxima(){
-        return this.Velocidad;
+
+    public int getVelocidadMaxima() {
+        return this.VelocidadMaxima;
     }
-    public int getCapacidad(){
+
+    public int getCapacidad() {
         return this.Capacidad;
     }
-    public double getDeposito(){
+
+    public double getDeposito() {
         return this.Deposito;
     }
-    public double getCapacidadDeposito(){
+
+    public double getCapacidadDeposito() {
         return this.CapacidadDeposito;
     }
-    public boolean getArrancado(){
-       return this.Arrancado;
+
+    public boolean getArrancado() {
+        return this.Arrancado;
+    }
+    public int getPasajeros(){
+        return this.pasajeros;
     }
 
-    public void arrancar(){
-        if(pasajeros == 0){
+    @Override
+    public String toString(){
+        String estado = "La velocidad es: "+this.Velocidad+" y la velocidad maxima es: "+this.VelocidadMaxima+
+        ", los pasajeros maximos son: "+this.Capacidad+" y hay: "+this.pasajeros+
+        ", el deposito es de: "+this.CapacidadDeposito+"L y quedan "+this.Deposito+"L "  ;
+        return estado;
+    }
+    public void arrancar() {
+        if (pasajeros == 0) {
             System.out.println("Tiene que haber alguien en el coche");
-        }
-        else{
-        this.Arrancado = true;
-        }
-    }
-
-    public void detener(){
-        this.Arrancado = false;
-        this.Velocidad= 0;
-    }
-
-    public void repostar(){
-        this.Deposito = this.CapacidadDeposito;
-    }
-
-    public void acelerar(){
-        if(this.Arrancado){
-        this.Velocidad += 10;
-        this.Deposito -= 0.5;
-        }
-        else{
-            System.out.println("Arranca el coche primero");
+        } else {
+            this.Arrancado = true;
+            System.out.println("El coche ya está arrancado");
+            System.out.println(this.toString());
         }
     }
 
-    public void decelerar(){
-        if(Velocidad == 0){
+    public void detener() {
+        if (this.Velocidad > 0) {
+            System.out.println("Frena antes hasta 0");
+        } else {
+            this.Arrancado = false;
+            this.Velocidad = 0;
+            System.out.println(this.toString());
+        }
+    }
+
+    public void repostar() {
+        if (Arrancado) {
+            System.out.println("Apaga el coche antes");
+        } else {
+            if (Deposito == CapacidadDeposito) {
+                System.out.println("El deposito está lleno");
+            }else{
+            this.Deposito = this.CapacidadDeposito;
+            System.out.println(this.toString());
+        }
+        }
+    }
+
+    public void acelerar() {
+        if (this.Arrancado) {
+            if(this.Deposito > 0.5 && this.Velocidad+10 < this.VelocidadMaxima){
+            this.Velocidad += 10;
+            this.Deposito -= 0.5;
+            System.out.println(this.toString());
+            }else{
+                System.out.println("No se puede acelerar más");
+            }
+    }else {
+        System.out.println("Arranca el coche primero");
+    }
+    }
+
+    public void decelerar() {
+        if (Velocidad == 0) {
             System.out.println("No puedes bajar más la velocidad");
-        }
-        else{
-        this.Velocidad -=5;
+        } else {
+            this.Velocidad -= 5;
+            System.out.println(this.toString());
         }
     }
 
-    public void entrar(){
-        if(pasajeros<this.Capacidad-1){
-        this.pasajeros++;
-        }
-        else{
+    public void entrar() {
+        if (pasajeros < this.Capacidad) {
+            this.pasajeros++;
+            System.out.println(this.toString());
+        } else {
             System.out.println("No cabe más gente");
         }
     }
 
-    public void salir(){
-        this.pasajeros--;
+    public void salir() {
+        if (pasajeros < 1){
+            System.out.println("No hay nadie para salir");
+        }else{
+            this.pasajeros--;
+            System.out.println(this.toString());
+        }
+        
     }
 }
