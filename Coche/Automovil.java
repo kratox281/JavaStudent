@@ -171,6 +171,7 @@ public class Automovil {
             if(this.Deposito > 0.5 && this.Velocidad+10 < this.VelocidadMaxima){
             this.Velocidad += 10;
             this.Deposito -= 0.5;
+            Detallitos.acelerador();
             System.out.println(this.toString());
             }else{
                 System.out.println("No se puede acelerar más");

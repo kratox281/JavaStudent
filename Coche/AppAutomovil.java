@@ -4,10 +4,13 @@ public class AppAutomovil {
     public static void main(String[] args) {
         char seguir = 's';
         Scanner tc = new Scanner(System.in);
+
+        Detallitos.hola();        
         Automovil coche1 = new Automovil();
+        
        do{
         System.out.println("Que quieres hacer");
-        System.out.println("1:Arrancar || 2:Detener || 3:Repostar || 4:Acelerar || 5:Decelerar || 6:Entrar || 7:Salir");
+        System.out.println("1:Arrancar || 2:Detener || 3:Repostar || 4:Acelerar || 5:Decelerar || 6:Entrar || 7:Salir || 8:Otras");
             int opcion = tc.nextInt();
         switch(opcion){
             case 1:
@@ -30,6 +33,11 @@ public class AppAutomovil {
             break;
             case 7:
             coche1.salir();
+            break;
+            case 8:
+            Detallitos.modoPro();
+            break;
+            default:
             break;
 
         }
