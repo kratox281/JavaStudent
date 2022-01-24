@@ -137,6 +137,7 @@ public class Automovil {
         if (pasajeros == 0) {
             System.out.println("Tiene que haber alguien en el coche");
         } else {
+            Detallitos.surprise();
             this.Arrancado = true;
             System.out.println("El coche ya está arrancado");
             System.out.println(this.toString());
@@ -155,6 +156,7 @@ public class Automovil {
 
     public void repostar() {
         if (Arrancado) {
+            Detallitos.surprise();
             System.out.println("Apaga el coche antes");
         } else {
             if (Deposito == CapacidadDeposito) {
@@ -169,6 +171,7 @@ public class Automovil {
     public void acelerar() {
         if (this.Arrancado) {
             if(this.Deposito > 0.5 && this.Velocidad+10 < this.VelocidadMaxima){
+                Detallitos.surprise();
             this.Velocidad += 10;
             this.Deposito -= 0.5;
             System.out.println(this.toString());
