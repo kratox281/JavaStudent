@@ -30,8 +30,7 @@ public class Detallitos {
         System.out.println(" #     # # #      #   ##  #  #  #      #   ## # #    # #    # ");
         System.out.println(" ######  # ###### #    #   ##   ###### #    # # #####   ####  "); 
         System.out.println();
-        System.out.println();
-        System.out.println("___________________________________________________________________");  
+        separadores();
      }
     
      public static void modoPro(){
@@ -55,8 +54,9 @@ public class Detallitos {
             System.out.println("................*@@@.................@@@..........");
             System.out.println("........../@@@@@@,.................@@@@...........");
             System.out.println("..%@@@@@@@@@.....................&@@@.............");
-            System.out.println(",@/............................@@@*...............");
+            System.out.println(",@/............................@@@*..............."); 
             System.out.println(".................................................");
+            separadores();
             break;
 
             case 2:
@@ -89,6 +89,7 @@ public class Detallitos {
             System.out.println("@......@  @..........@ @....@      @.....@ @@@@@@@@@@@@.....@            ");
             System.out.println("@......@   @.........@ @....@@@@@@@@.....@ @................@            ");
             System.out.println("@......@    @........@ @.................@ @................@            ");
+            separadores();
             break;
             default:
             break;
@@ -109,7 +110,34 @@ public class Detallitos {
          System.out.println(". @%             @@@@@@@@@@@@@@@@@@@@@@&/,     ");
          System.out.println("& @@             @@@@@@@             @,        ");
          System.out.println(".%                                @@         ");
+         separadores();
+     }     
+     public static void cochesito(){
+         System.out.println("                                 .(@@@@&/.                                       ");
+         System.out.println("                      .%%%%&&%.... .     %%%%%,                               ");
+         System.out.println("                    %%%(     #%..........       @%%&                           ");
+         System.out.println("                  %%%(.      #%**.....,.*..       (%@                          ");
+         System.out.println("     /          %%%%*...     #%,*.,...,./,      ..(,%&                         ");
+         System.out.println("         *%%%%%%%%%,...      #%*...,..  .(////// .% .%&                        ");
+         System.out.println("      %%%%@%%%%%%%%%%%%%%%%%%%%%%&#******(/@%%%%%%%%%%%%%%%%%%%%%%%%           ");
+         System.out.println("    &%%%%%%%%%%%%%%%%%%%%%%%%%%&%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%       ");
+         System.out.println("   (%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&###  ");
+         System.out.println("   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%@%%, ");
+         System.out.println("   %%%%%%%%&%%%%%%%%%&%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%, ");
+         System.out.println("   %%%%%&%%%%%%%%%%%%%%%&%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&%. ");
+         System.out.println("  #@%%%%%%&  (////((  &%%%%%%%%%%%%%%%%%%%%%%%%&%%%%%%%%  (////((  %%%%%@&%%   ");
+         System.out.println("    %%%%, %##((/*/(##%% /%%%%%%%%%%%%%%%%%%%%%%%%%%%%  %##((/*/(##%% #%%%%%%   ");
+         System.out.println("    %%%  &%%(/,  .*//%&&  %%%%%%&%%%%%%%%%%%%%%%%%%%  &%%(/,. .,/(%&& .%%%&**  ");
+         System.out.println(" *%%%%% &&&/#(/@@@/(%&&&( %%%%&&%%%%%%%%%%%%%%@%%%%% &&&(#(/@@@/(%/&&& %%****  ");
+         System.out.println("         @@&@&%%%%&@@@@@                              &@&&&&%%%&&@@@@          ");
+         System.out.println("          @@@@@(*%@@@@@                                @@@@@#*#@@@@@           ");
+         System.out.println("             @@@@@@@                                      @@@@@@@              ");
+         separadores();
+     }
 
-
+     public static void separadores(){
+         System.out.println();
+         System.out.println("====================================================================================");
+         System.out.println();
      }
 }

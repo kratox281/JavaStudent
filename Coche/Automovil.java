@@ -8,7 +8,7 @@ public class Automovil {
     private String Marca;
     private String Modelo;
     private int Potencia;
-    private int Velocidad;
+    private int Velocidad; 
     private int VelocidadMaxima;
     private int Capacidad; //gente que cabe en el coche
     private double Deposito;
@@ -171,8 +171,8 @@ public class Automovil {
             if(this.Deposito > 0.5 && this.Velocidad+10 < this.VelocidadMaxima){
             this.Velocidad += 10;
             this.Deposito -= 0.5;
-            Detallitos.acelerador();
             System.out.println(this.toString());
+            Detallitos.acelerador();
             }else{
                 System.out.println("No se puede acelerar más");
             }

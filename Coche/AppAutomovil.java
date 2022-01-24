@@ -6,8 +6,11 @@ public class AppAutomovil {
         Scanner tc = new Scanner(System.in);
 
         Detallitos.hola();        
-        Automovil coche1 = new Automovil();
         
+        Automovil coche1 = new Automovil();
+
+        System.out.println("Ya está creado el coche");
+        Detallitos.cochesito();
        do{
         System.out.println("Que quieres hacer");
         System.out.println("1:Arrancar || 2:Detener || 3:Repostar || 4:Acelerar || 5:Decelerar || 6:Entrar || 7:Salir || 8:Otras");
