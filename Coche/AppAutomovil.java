@@ -8,12 +8,16 @@ public class AppAutomovil {
         Scanner tc = new Scanner(System.in);
         int cm = 0;
         Detallitos.hola();
-       
+        try{
         do {
             System.out.println("Deseas crear un coche o  una moto");
             System.out.println("1:Coche || 2:Moto");
             cm = tc.nextInt();
-        } while (cm<=0 && cm>2);
+        } while (cm <= 0 && cm > 2);
+    }catch(Exception e){
+        System.out.println("Datos introducidos no validos");
+        System.exit(0);
+    }
         Automovil coche1 = new Automovil();
         switch (cm) {
             case 1:
@@ -21,8 +25,8 @@ public class AppAutomovil {
                 Detallitos.cochesito();
                 break;
             case 2:
-            System.out.println("Ya está creada la moto");
-            Detallitos.moto();
+                System.out.println("Ya está creada la moto");
+                Detallitos.moto();
                 break;
         }
         do {
@@ -41,7 +45,11 @@ public class AppAutomovil {
                     coche1.repostar();
                     break;
                 case 4:
-                    coche1.acelerar();
+                    try {
+                        coche1.acelerar();
+                    } catch (Exception e) {
+                        System.out.println("Error del coche, "+e.getMessage());
+                    }
                     break;
                 case 5:
                     coche1.decelerar();
