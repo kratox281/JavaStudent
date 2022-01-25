@@ -8,12 +8,13 @@ public class AppAutomovil {
         Scanner tc = new Scanner(System.in);
         int cm = 0;
         Detallitos.hola();
-        Automovil coche1 = new Automovil();
+       
         do {
             System.out.println("Deseas crear un coche o  una moto");
             System.out.println("1:Coche || 2:Moto");
             cm = tc.nextInt();
         } while (cm<=0 && cm>2);
+        Automovil coche1 = new Automovil();
         switch (cm) {
             case 1:
                 System.out.println("Ya está creado el coche");
