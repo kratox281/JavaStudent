@@ -13,10 +13,15 @@ public class Punto {
     }
 
     public Punto(){
-        System.out.println("introduce x");
-        this.x = tc.nextDouble();
-        System.out.println("Introduce y");
-        this.y = tc.nextDouble();
+        try {
+            System.out.println("introduce x");
+            this.x = tc.nextDouble();
+            System.out.println("Introduce y");
+            this.y = tc.nextDouble();
+        } catch (Exception e) {
+            System.out.println("Error en la introduccion de datos");
+        }
+      
 
     }
 

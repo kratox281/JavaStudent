@@ -8,9 +8,14 @@ public class Circulo {
     private Punto centro;
 
     public Circulo() {
-        System.out.println("Introduce el radio");
-        this.radio = tc.nextDouble();
-        this.centro = setCentroCirculo();
+        try {
+            System.out.println("Introduce el radio");
+            this.radio = tc.nextDouble();
+            this.centro = setCentroCirculo();
+        } catch (InputMismatchException e) {
+            System.out.println("Error en la introducción de datos");
+        }
+       
     }
 
     public Circulo(Double r) {

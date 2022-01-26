@@ -8,11 +8,16 @@ public class Triangulo {
     private Punto centro;
     static Scanner tc = new Scanner(System.in);
     public Triangulo() {
+        try {
         System.out.println("Introduce la base");
         this.base = tc.nextDouble();
         System.out.println("Introduce la altura");
         this.altura = tc.nextDouble();
         this.centro = setCentroTriangulo();
+        } catch (Exception e) {
+            System.out.println("Error en la introduccion de datos");
+        }
+        
     }
 
     public Triangulo(Double b, Double a) {

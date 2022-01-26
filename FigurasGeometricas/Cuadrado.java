@@ -1,5 +1,6 @@
 package FigurasGeometricas;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Cuadrado {
@@ -7,9 +8,14 @@ public class Cuadrado {
     private Punto centro;
     static Scanner tc = new Scanner(System.in);
     public Cuadrado() {
-        System.out.println("Introduce el lado");
-        this.lado = tc.nextDouble();
-        this.centro = setCentroCuadrado();
+        try {
+            System.out.println("Introduce el lado");
+            this.lado = tc.nextDouble();
+            this.centro = setCentroCuadrado();
+        } catch (InputMismatchException e) {
+            System.out.println("Error en la introducción de datos");
+        }
+      
     }
 
     public Cuadrado(Double l) {
