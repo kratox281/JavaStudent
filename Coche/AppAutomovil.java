@@ -1,5 +1,6 @@
 package Coche;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class AppAutomovil {
@@ -13,11 +14,9 @@ public class AppAutomovil {
             System.out.println("Deseas crear un coche o  una moto");
             System.out.println("1:Coche || 2:Moto");
             cm = tc.nextInt();
-        } while (cm <= 0 && cm > 2);
-    }catch(Exception e){
-        System.out.println("Datos introducidos no validos");
-        System.exit(0);
-    }
+        } while (cm <= 0 || cm > 2);
+   
+       
         Automovil coche1 = new Automovil();
         switch (cm) {
             case 1:
@@ -74,5 +73,9 @@ public class AppAutomovil {
             }
 
         } while (seguir == 's');
+    }catch(InputMismatchException e){
+        System.out.println("Datos introducidos no validos");
+        System.exit(0);
+    }
     }
 }
