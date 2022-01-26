@@ -1,5 +1,6 @@
 package FigurasGeometricas;
-    import java.util.Scanner;
+    import java.util.InputMismatchException;
+import java.util.Scanner;
 public class AppFiguras {
     static Scanner tc = new Scanner(System.in);
     public static void usarCirculo(){
@@ -41,6 +42,7 @@ public class AppFiguras {
     
     public static void main(String[] args) {
         char seguir = 's';
+        try{
        do{
         System.out.println();
         System.out.println("¿Qué figura quieres crear?");
@@ -71,5 +73,8 @@ public class AppFiguras {
         System.out.println("s = Si || n = No");
         seguir = tc.next().toLowerCase().charAt(0);
        }while(seguir == 's');
+    }catch(InputMismatchException e){
+        System.out.println("Error en los datos");
+    }
     }
 }
