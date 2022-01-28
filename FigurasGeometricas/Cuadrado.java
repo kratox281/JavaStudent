@@ -2,6 +2,7 @@ package FigurasGeometricas;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.awt.*;
 
 public class Cuadrado {
     private Double lado;
@@ -55,7 +56,13 @@ public class Cuadrado {
         return centroCuadrado;
 
     }
-    public void moverCentro(Punto nuevo){
+    public void moverCentro(Punto nuevo) throws PuntoException{
+        if(nuevo.getX()+(lado/2)>Toolkit.getDefaultToolkit().getScreenSize().getWidth()){
+            throw new PuntoException("Se sale de la pantalla");
+        }
+        if(nuevo.getY()+(lado/2)>Toolkit.getDefaultToolkit().getScreenSize().getHeight()){
+            throw new PuntoException("Se sale de la pantalla");
+        }
         this.centro.moverPunto(nuevo);
     }
     public void desplazarCentro(double x, double y){

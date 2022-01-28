@@ -14,6 +14,8 @@ public class AppFiguras {
         System.out.println(c.toString());
         }catch(InputMismatchException e){
             System.out.println(e.getMessage());
+        }catch(PuntoException e){
+            System.out.println(e.getMessage());
         }
     }
     public static void usarCuadrado(){
@@ -26,6 +28,8 @@ public class AppFiguras {
         s.moverCentro(nuevo);
         System.out.println(s.toString());
         } catch (InputMismatchException e) {
+            System.out.println(e.getMessage());
+        }catch(PuntoException e){
             System.out.println(e.getMessage());
         }
         
@@ -54,6 +58,8 @@ public class AppFiguras {
         r.moverCentro(nuevo);
         System.out.println(r.toString());
         } catch (InputMismatchException e) {
+            System.out.println(e.getMessage());
+        }catch(PuntoException e){
             System.out.println(e.getMessage());
         }
        

@@ -1,5 +1,6 @@
 package FigurasGeometricas;
 
+import java.awt.Toolkit;
 import java.util.*;
 
 public class Circulo {
@@ -51,7 +52,13 @@ public class Circulo {
 
     }
 
-    public void moverCentro(Punto nuevo){
+    public void moverCentro(Punto nuevo) throws PuntoException{
+        if(nuevo.getX()+radio>Toolkit.getDefaultToolkit().getScreenSize().getWidth()){
+            throw new PuntoException("Se sale de la pantalla");
+        }
+        if(nuevo.getY()+radio>Toolkit.getDefaultToolkit().getScreenSize().getHeight()){
+            throw new PuntoException("Se sale de la pantalla");
+        }
         this.centro.moverPunto(nuevo);
     }
 

@@ -2,7 +2,7 @@ package FigurasGeometricas;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
+import java.awt.*;
 public class Rectangulo {
     private Double ancho;
     private Double alto;
@@ -67,7 +67,13 @@ public class Rectangulo {
         return centroRectangulo;
 
     }
-    public void moverCentro(Punto nuevo){
+    public void moverCentro(Punto nuevo) throws PuntoException{
+        if(nuevo.getX()+(ancho/2)>Toolkit.getDefaultToolkit().getScreenSize().getWidth()){
+            throw new PuntoException("Se sale de la pantalla");
+        }
+        if(nuevo.getY()+(alto/2)>Toolkit.getDefaultToolkit().getScreenSize().getHeight()){
+            throw new PuntoException("Se sale de la pantalla");
+        }
         this.centro.moverPunto(nuevo);
     }
     public void desplazarCentro(double x, double y){
