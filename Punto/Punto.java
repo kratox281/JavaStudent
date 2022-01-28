@@ -12,9 +12,12 @@ public class Punto {
 
     public void setX(int valor) {
         try {
+            if (Math.abs(valor) >(int) ((Toolkit.getDefaultToolkit().getScreenSize().getWidth()) / 2)){
+                throw new PuntoException("Valor invalido,está fuera de la pantalla");
+            }
             this.x = valor;
         } catch (Exception e) {
-            System.out.println("Error en los datos "+e.getMessage());
+            System.out.println(e.getMessage());
         }
         
     }
@@ -25,9 +28,12 @@ public class Punto {
 
     public void setY(int valor) {
         try {
+            if (Math.abs(valor) >(int) ((Toolkit.getDefaultToolkit().getScreenSize().getHeight()) / 2)){
+                throw new PuntoException("Valor invalido,está fuera de la pantalla");
+            }
             this.y = valor;
         } catch (Exception e) {
-            System.out.println("Error en los datos "+e.getMessage());
+            System.out.println(e.getMessage());
         }
         
     }
@@ -44,17 +50,23 @@ public class Punto {
 
     public void sumarCoor(int x2, int y2) {
         try {
+            if (Math.abs(this.x+x2) >(int) ((Toolkit.getDefaultToolkit().getScreenSize().getWidth()) / 2)){
+                throw new PuntoException("Suma invalida, el punto está fuera de la pantalla");
+            }
+            if (Math.abs(this.y+y2) >(int) ((Toolkit.getDefaultToolkit().getScreenSize().getHeight()) / 2)){
+                throw new PuntoException("Suma invalida ,el punto está fuera de la pantalla");
+            }
         this.x += x2;
         this.y += y2;
-        } catch (Exception e) {
-            System.out.println("");
+        } catch (PuntoException e) {
+            System.out.println(e.getMessage());
         }
         
     }
 
     public void distanciaCoor(Double x2, Double y2) {
         try {
-            double x1 = this.x;
+        double x1 = this.x;
         double y1 = this.y;
         double distancia = Math.sqrt(Math.pow((x2 - x1),2) + Math.pow((y2 - y1),2));
         System.out.println("La distancia entre los dos puntos es: " + distancia);
