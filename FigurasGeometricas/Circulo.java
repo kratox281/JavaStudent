@@ -19,7 +19,7 @@ public class Circulo {
     }
 
     public Circulo(Double r) {
-        this.radio = r;
+        setRadio(r);
     }
 
     public void setRadio(Double r) {

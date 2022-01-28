@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class AppFiguras {
     static Scanner tc = new Scanner(System.in);
     public static void usarCirculo(){
+        try{
         Circulo c = new Circulo();
         System.out.println();
         System.out.println(c.toString());
@@ -11,17 +12,26 @@ public class AppFiguras {
         Punto nuevo = new Punto();
         c.moverCentro(nuevo);
         System.out.println(c.toString());
+        }catch(InputMismatchException e){
+            System.out.println(e.getMessage());
+        }
     }
     public static void usarCuadrado(){
-        System.out.println();
+        try {
+            System.out.println();
         Cuadrado s = new Cuadrado();
         System.out.println(s.toString());
         System.out.println("Vamos a mover el centro");
         Punto nuevo = new Punto();
         s.moverCentro(nuevo);
         System.out.println(s.toString());
+        } catch (InputMismatchException e) {
+            System.out.println(e.getMessage());
+        }
+        
     }
     public static void usarTriangulo(){
+        try {
         System.out.println();
         Triangulo t = new Triangulo();
         System.out.println(t.toString());
@@ -29,15 +39,24 @@ public class AppFiguras {
         Punto nuevo = new Punto();
         t.moverCentro(nuevo);
         System.out.println(t.toString());
+        } catch (InputMismatchException e) {
+            System.out.println(e.getMessage());
+        }
+        
     }
     public static void usarRectangulo(){
-        System.out.println();
+        try {
+             System.out.println();
         Rectangulo r = new Rectangulo();
         System.out.println(r.toString());
         System.out.println("Vamos a mover el centro");
         Punto nuevo = new Punto();
         r.moverCentro(nuevo);
         System.out.println(r.toString());
+        } catch (InputMismatchException e) {
+            System.out.println(e.getMessage());
+        }
+       
     }
     
     public static void main(String[] args) {

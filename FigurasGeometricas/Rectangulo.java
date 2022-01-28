@@ -1,5 +1,6 @@
 package FigurasGeometricas;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Rectangulo {
@@ -8,11 +9,16 @@ public class Rectangulo {
     private Punto centro;
     static Scanner tc = new Scanner(System.in);
     public Rectangulo() {
+        try {
         System.out.println("Introduce el ancho");
         this.ancho = tc.nextDouble();
         System.out.println("Introduce el alto");
         this.alto = tc.nextDouble();
         this.centro = setCentroRectangulo();
+        } catch (InputMismatchException e) {
+            System.out.println(e.getMessage());
+        }
+        
     }
 
     public Rectangulo(Double b, Double a) {

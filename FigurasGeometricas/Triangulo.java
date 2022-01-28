@@ -1,5 +1,6 @@
 package FigurasGeometricas;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Triangulo {
@@ -14,7 +15,7 @@ public class Triangulo {
         System.out.println("Introduce la altura");
         this.altura = tc.nextDouble();
         this.centro = setCentroTriangulo();
-        } catch (Exception e) {
+        } catch (InputMismatchException e) {
             System.out.println("Error en la introduccion de datos");
         }
         
