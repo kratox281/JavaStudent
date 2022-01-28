@@ -12,7 +12,7 @@ public class Punto {
 
     public void setX(int valor) {
         try {
-            if (Math.abs(valor) >(int) ((Toolkit.getDefaultToolkit().getScreenSize().getWidth()) / 2)){
+            if (Math.abs(valor) >(int) ((Toolkit.getDefaultToolkit().getScreenSize().getWidth()))){
                 throw new PuntoException("Valor invalido,está fuera de la pantalla");
             }
             this.x = valor;
@@ -28,7 +28,7 @@ public class Punto {
 
     public void setY(int valor) {
         try {
-            if (Math.abs(valor) >(int) ((Toolkit.getDefaultToolkit().getScreenSize().getHeight()) / 2)){
+            if (Math.abs(valor) >(int) ((Toolkit.getDefaultToolkit().getScreenSize().getHeight()))){
                 throw new PuntoException("Valor invalido,está fuera de la pantalla");
             }
             this.y = valor;
@@ -50,10 +50,10 @@ public class Punto {
 
     public void sumarCoor(int x2, int y2) {
         try {
-            if (Math.abs(this.x+x2) >(int) ((Toolkit.getDefaultToolkit().getScreenSize().getWidth()) / 2)){
+            if (Math.abs(this.x+x2) >(int) ((Toolkit.getDefaultToolkit().getScreenSize().getWidth()))){
                 throw new PuntoException("Suma invalida, el punto está fuera de la pantalla");
             }
-            if (Math.abs(this.y+y2) >(int) ((Toolkit.getDefaultToolkit().getScreenSize().getHeight()) / 2)){
+            if (Math.abs(this.y+y2) >(int) ((Toolkit.getDefaultToolkit().getScreenSize().getHeight()))){
                 throw new PuntoException("Suma invalida ,el punto está fuera de la pantalla");
             }
         this.x += x2;
