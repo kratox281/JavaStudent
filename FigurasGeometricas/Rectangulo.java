@@ -17,6 +17,8 @@ public class Rectangulo {
         this.centro = setCentroRectangulo();
         } catch (InputMismatchException e) {
             System.out.println(e.getMessage());
+        }catch(PuntoException e){
+            System.out.println(e.getMessage());
         }
         
     }
@@ -62,8 +64,20 @@ public class Rectangulo {
         return diagonal;
     }
 
-    public Punto setCentroRectangulo(){
+    public Punto setCentroRectangulo()throws PuntoException{
         Punto centroRectangulo = new Punto();
+        if(centroRectangulo.getX()+(ancho/2)>Toolkit.getDefaultToolkit().getScreenSize().getWidth()){
+            throw new PuntoException("Se sale de la pantalla");
+        }
+        if(centroRectangulo.getY()+(alto/2)>Toolkit.getDefaultToolkit().getScreenSize().getHeight()){
+            throw new PuntoException("Se sale de la pantalla");
+        }
+        if(centroRectangulo.getY()-(alto/2)<0){
+            throw new PuntoException("Se sale de la pantalla");
+           }
+        if(centroRectangulo.getX()-(ancho/2)<0){
+               throw new PuntoException("Se sale de la pantalla");
+           }
         return centroRectangulo;
 
     }
