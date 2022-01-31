@@ -63,6 +63,14 @@ public class Cuadrado {
         if(nuevo.getY()+(lado/2)>Toolkit.getDefaultToolkit().getScreenSize().getHeight()){
             throw new PuntoException("Se sale de la pantalla");
         }
+        if(nuevo.getY()-(lado/2)<0){
+         throw new PuntoException("Se sale de la pantalla");
+        }
+        if(nuevo.getX()-(lado/2)<0){
+            throw new PuntoException("Se sale de la pantalla");
+        }
+        
+
         this.centro.moverPunto(nuevo);
     }
     public void desplazarCentro(double x, double y){

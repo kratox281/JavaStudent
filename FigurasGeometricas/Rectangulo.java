@@ -74,6 +74,12 @@ public class Rectangulo {
         if(nuevo.getY()+(alto/2)>Toolkit.getDefaultToolkit().getScreenSize().getHeight()){
             throw new PuntoException("Se sale de la pantalla");
         }
+        if(nuevo.getY()-(alto/2)<0){
+            throw new PuntoException("Se sale de la pantalla");
+           }
+        if(nuevo.getX()-(ancho/2)<0){
+               throw new PuntoException("Se sale de la pantalla");
+           }
         this.centro.moverPunto(nuevo);
     }
     public void desplazarCentro(double x, double y){
