@@ -88,12 +88,14 @@ public class Ascensor{
             throw new AscensorException("Ya estaban abiertas");
         }
         setPuertas(true);
+        System.out.println(toString());
     }
     public void cerrar() throws AscensorException{
         if(this.Puertas==false){
             throw new AscensorException("Ya estaban cerradas");
         }
         setPuertas(false);
+        System.out.println(toString());
     }
     public void entrar() throws AscensorException{
         if(this.Alarma){
@@ -110,7 +112,7 @@ public class Ascensor{
             setAlarma(true);
         }
         this.Ocupacion+=pasajero.getPeso();
-        toString();
+        System.out.println(toString());
     }
 
     public void salir() throws AscensorException{
@@ -125,7 +127,7 @@ public class Ascensor{
         }
         cerrar();
         setOcupacion(0);
-        toString();
+        System.out.println(toString());
     }
 
     public void activar() throws AscensorException{
@@ -179,7 +181,7 @@ public class Ascensor{
         }
         }
         abrir(); 
-        toString();
+        System.out.println(toString());
         }catch(InputMismatchException e){
             System.out.println("Error en los datos");
         }
