@@ -1,6 +1,5 @@
 package Ascensor;
 
-    import java.rmi.AccessException;
 import java.util.Scanner;
 
 public class Ascensor{
@@ -15,7 +14,11 @@ public class Ascensor{
     public Ascensor(int np,double cap){
         setPisos(np);
         setCapacidad(cap);
-        this.Ocupacion=0;
+        setOcupacion(0);
+        setPiso(0);
+        setAlarma(false);
+        setPuertas(false);
+        
     }
 
     public void setPisos(int n){
@@ -74,10 +77,10 @@ public class Ascensor{
         this.Puertas = false;
     }
     public void entrar() throws AscensorException{
-        if(Alarma){
+        if(this.Alarma){
             throw new AscensorException("La alarma está activada no se puede subir");
         }
-        if(!Puertas){
+        if(!this.Puertas){
             throw new AscensorException("No puedes entrar con la puerta cerrada, dale al botón de abrir");
         }
         Persona pasajero  = new Persona();
@@ -88,7 +91,17 @@ public class Ascensor{
             setAlarma(true);
         }
         this.Ocupacion+=pasajero.getPeso();
-        
-        
     }
+
+    public void salir() throws AscensorException{
+        if(this.Ocupacion==0){
+            throw new AscensorException("COMO VAS A SALIR SI NO HAY NADIE");
+        }
+        if(this.Alarma){
+            setAlarma(false);
+        }
+        setOcupacion(0);
+    }
+
+    
 }
