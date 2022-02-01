@@ -156,7 +156,7 @@ public class Ascensor{
         if(objetivo == this.Piso){
             throw new AscensorException("Ya estás en el piso");
         }
-        setPuertas(false);
+        cerrar();
         if(objetivo>this.Piso){
             for(int i = this.Piso;i<objetivo;i++){
                 Thread.sleep(500);
@@ -171,7 +171,8 @@ public class Ascensor{
                 System.out.println(getPiso()+"º");
                 System.out.println("*************************");
         }
-        } 
+        }
+        abrir(); 
         }catch(InputMismatchException e){
             System.out.println("Error en los datos");
         }
