@@ -34,6 +34,7 @@ public class Ascensor{
         setPiso(0);
         setAlarma(false);
         setPuertas(false);
+        
          }catch(InputMismatchException e){
             System.out.println("Error en los datos");
         }
@@ -78,8 +79,8 @@ public class Ascensor{
     }
     @Override
     public String toString(){
-
-        return "Estas en el piso "+getPiso()+", aun tiene capacidad para "+(getCapacidad()-getOcupacion())+"kg";
+        String puertas = (this.Puertas)?"Abiertas":"Cerradas";
+        return "Estas en el piso "+getPiso()+", aun tiene capacidad para "+(getCapacidad()-getOcupacion())+"kg"+"y las puertas están"+puertas;
     }
 
     public void abrir() throws AscensorException{
@@ -109,6 +110,7 @@ public class Ascensor{
             setAlarma(true);
         }
         this.Ocupacion+=pasajero.getPeso();
+        toString();
     }
 
     public void salir() throws AscensorException{
@@ -123,6 +125,7 @@ public class Ascensor{
         }
         cerrar();
         setOcupacion(0);
+        toString();
     }
 
     public void activar() throws AscensorException{
@@ -176,6 +179,7 @@ public class Ascensor{
         }
         }
         abrir(); 
+        toString();
         }catch(InputMismatchException e){
             System.out.println("Error en los datos");
         }
