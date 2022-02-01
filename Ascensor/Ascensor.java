@@ -82,7 +82,6 @@ public class Ascensor{
         pasajero.setPeso(peso);
         if(this.Ocupacion+pasajero.getPeso()>getCapacidad()){
             setAlarma(true);
-            throw new AscensorException("Exceso de peso no se puede subir");
         }
         this.Ocupacion+=pasajero.getPeso();
         
