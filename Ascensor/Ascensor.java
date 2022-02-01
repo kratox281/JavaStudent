@@ -1,5 +1,6 @@
 package Ascensor;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Ascensor{
@@ -68,13 +69,13 @@ public class Ascensor{
         if(this.Puertas){
             throw new AscensorException("Ya estaban abiertas");
         }
-        this.Puertas = true;
+        setPuertas(true);
     }
     public void cerrar() throws AscensorException{
         if(this.Puertas==false){
             throw new AscensorException("Ya estaban cerradas");
         }
-        this.Puertas = false;
+        setPuertas(false);
     }
     public void entrar() throws AscensorException{
         if(this.Alarma){
@@ -103,5 +104,55 @@ public class Ascensor{
         setOcupacion(0);
     }
 
-    
+    public void activar() throws AscensorException{
+        if(this.Alarma){
+            throw new AscensorException("Ya estaba activada de antes");
+        }
+        setAlarma(true);
+    }
+
+    public void desactivar() throws AscensorException{
+        if(!this.Alarma){
+            throw new AscensorException("Ya estaba desactivada");
+        }
+        setAlarma(false);
+    }
+
+    public void mover() throws AscensorException, InterruptedException{
+        int objetivo=0;
+        if(this.Alarma){
+            throw new AscensorException("Alarma activada no se puede mover el ascensor");
+        }
+        try{
+        System.out.println("¿A qué piso quieres ir?");
+        objetivo = tc.nextInt();
+        }catch(InputMismatchException e){
+            System.out.println("Error en los datos");
+        }
+        if(objetivo<0){
+            throw new AscensorException("No puedes bajar por debajo del 0");
+        }
+        if(objetivo>this.Pisos){
+            throw new AscensorException("No existe ese piso");
+        }
+        if(objetivo == this.Piso){
+            throw new AscensorException("Ya estás en el piso");
+        }
+        cerrar();
+        if(objetivo>this.Piso){
+            for(int i = this.Piso;i<=objetivo;i++){
+                Thread.sleep(200);
+                this.Piso++;
+                System.out.println(getPiso()+"º");
+                System.out.println("*************************");
+            }
+        }else if(objetivo<this.Piso){
+            for(int i = this.Piso;i>=objetivo;i--){
+                Thread.sleep(200);
+                this.Piso--;
+                System.out.println(getPiso()+"º");
+                System.out.println("*************************");
+        }
+        }
+    }
 }
