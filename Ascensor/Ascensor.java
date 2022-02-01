@@ -79,8 +79,8 @@ public class Ascensor{
     }
     @Override
     public String toString(){
-        String puertas = (this.Puertas)?"Abiertas":"Cerradas";
-        return "Estas en el piso "+getPiso()+", aun tiene capacidad para "+(getCapacidad()-getOcupacion())+"kg"+"y las puertas están"+puertas;
+        String puertas = (this.Puertas)?"abiertas":"cerradas";
+        return "Estas en el piso "+getPiso()+", aun tiene capacidad para "+(getCapacidad()-getOcupacion())+"kg"+"y las puertas están "+puertas;
     }
 
     public void abrir() throws AscensorException{
