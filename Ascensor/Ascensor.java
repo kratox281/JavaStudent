@@ -1,6 +1,5 @@
 package Ascensor;
 
-import java.rmi.AccessException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -103,7 +102,7 @@ public class Ascensor{
             throw new AscensorException("No puedes entrar con la puerta cerrada, dale al botón de abrir");
         }
         Persona pasajero  = new Persona();
-        System.out.println("Cuanto pesa la nueva persona?");
+        System.out.println("¿Cuánto pesa la nueva persona?");
         double peso = tc.nextDouble();
         pasajero.setPeso(peso);
         if(this.Ocupacion+pasajero.getPeso()>getCapacidad()){
