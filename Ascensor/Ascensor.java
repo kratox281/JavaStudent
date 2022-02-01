@@ -1,6 +1,7 @@
 package Ascensor;
 
-    import java.util.Scanner;
+    import java.rmi.AccessException;
+import java.util.Scanner;
 
 public class Ascensor{
     static Scanner tc = new Scanner(System.in);
@@ -75,6 +76,9 @@ public class Ascensor{
     public void entrar() throws AscensorException{
         if(Alarma){
             throw new AscensorException("La alarma está activada no se puede subir");
+        }
+        if(!Puertas){
+            throw new AscensorException("No puedes entrar con la puerta cerrada, dale al botón de abrir");
         }
         Persona pasajero  = new Persona();
         System.out.println("Cuanto pesa la nueva persona?");
