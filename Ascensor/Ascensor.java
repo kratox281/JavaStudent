@@ -140,6 +140,9 @@ public class Ascensor{
     }
 
     public void mover() throws AscensorException, InterruptedException{
+        if(this.Ocupacion==0){
+            throw new AscensorException("No se puede desplazar si no hay nadie");
+        }
         if(this.Alarma){
             throw new AscensorException("Alarma activada no se puede mover el ascensor");
         }
