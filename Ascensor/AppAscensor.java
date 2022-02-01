@@ -62,9 +62,11 @@ public class AppAscensor {
         System.out.println("No es una opción valida");
         break;
     }
+    if(otis.getPuertas()==false && otis.getOcupacion()==0){
     System.out.println("¿Deseas hacer más cosas?");
     System.out.println("S:sí || N:No");
     seguir = tc.next().toLowerCase().charAt(0);
+    }
       }catch(InputMismatchException e){
         System.out.println("Error en los datos");
       }catch(AscensorException ex){

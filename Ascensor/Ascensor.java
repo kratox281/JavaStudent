@@ -122,6 +122,7 @@ public class Ascensor{
         if(this.Alarma){
             setAlarma(false);
         }
+        cerrar();
         setOcupacion(0);
     }
 
