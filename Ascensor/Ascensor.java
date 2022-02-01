@@ -1,5 +1,6 @@
 package Ascensor;
 
+import java.rmi.AccessException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -20,6 +21,23 @@ public class Ascensor{
         setAlarma(false);
         setPuertas(false);
         
+    }
+    public Ascensor(){
+        try{
+        System.out.println("Introduce el numero de pisos que tiene el edificio");
+        int np = tc.nextInt();
+        System.out.println("Introduce la capacidad máxima del ascensor");
+        double cap = tc.nextDouble();
+       
+        setPisos(np);
+        setCapacidad(cap);
+        setOcupacion(0);
+        setPiso(0);
+        setAlarma(false);
+        setPuertas(false);
+         }catch(InputMismatchException e){
+            System.out.println("Error en los datos");
+        }
     }
 
     public void setPisos(int n){
@@ -98,6 +116,9 @@ public class Ascensor{
         if(this.Ocupacion==0){
             throw new AscensorException("COMO VAS A SALIR SI NO HAY NADIE");
         }
+        if(!this.Puertas){
+            throw new AscensorException("No puedes salir con las puertas cerradas");
+        }
         if(this.Alarma){
             setAlarma(false);
         }
@@ -119,16 +140,13 @@ public class Ascensor{
     }
 
     public void mover() throws AscensorException, InterruptedException{
-        int objetivo=0;
         if(this.Alarma){
             throw new AscensorException("Alarma activada no se puede mover el ascensor");
         }
         try{
         System.out.println("¿A qué piso quieres ir?");
-        objetivo = tc.nextInt();
-        }catch(InputMismatchException e){
-            System.out.println("Error en los datos");
-        }
+         int  objetivo = tc.nextInt();
+       
         if(objetivo<0){
             throw new AscensorException("No puedes bajar por debajo del 0");
         }
@@ -138,21 +156,24 @@ public class Ascensor{
         if(objetivo == this.Piso){
             throw new AscensorException("Ya estás en el piso");
         }
-        cerrar();
+        setPuertas(false);
         if(objetivo>this.Piso){
-            for(int i = this.Piso;i<=objetivo;i++){
-                Thread.sleep(200);
+            for(int i = this.Piso;i<objetivo;i++){
+                Thread.sleep(500);
                 this.Piso++;
                 System.out.println(getPiso()+"º");
                 System.out.println("*************************");
             }
         }else if(objetivo<this.Piso){
-            for(int i = this.Piso;i>=objetivo;i--){
-                Thread.sleep(200);
+            for(int i = this.Piso;i>objetivo;i--){
+                Thread.sleep(500);
                 this.Piso--;
                 System.out.println(getPiso()+"º");
                 System.out.println("*************************");
         }
+        } 
+        }catch(InputMismatchException e){
+            System.out.println("Error en los datos");
         }
     }
 }
