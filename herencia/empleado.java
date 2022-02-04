@@ -53,4 +53,8 @@ public class empleado {
 
     }
 
+    public double calcularSalarioMensual(){
+        double salario = 0;
+        return salario;
+    }
 }
