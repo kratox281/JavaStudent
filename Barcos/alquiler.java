@@ -22,7 +22,7 @@ public class alquiler {
     }
     public void setInicio(){
         try{
-        System.out.println("Introduce la fecha de inicio");
+        System.out.println("Introduce la fecha de inicio dd/mm/yyyy");
         String fecha = tc.next();
         this.inicio = sdf.parse(fecha);
         }catch(Exception e){
@@ -32,7 +32,7 @@ public class alquiler {
     }
     public void setFin(){
         try{
-        System.out.println("Introduce la fecha de fin");
+        System.out.println("Introduce la fecha de fin dd/mm/yyyy");
         String fecha = tc.next();
         this.fin = sdf.parse(fecha);
         }catch(Exception e){
@@ -67,8 +67,10 @@ public class alquiler {
             }
             }
         public void calcularAlquiler(){
-            int precio = alquilado.calcularModulo();
+            int tiempo = (int) ((((this.fin.getTime()-this.inicio.getTime())/6000)/60)/24);
+            int precio = alquilado.calcularModulo()*tiempo;
             System.out.println("El precio es: "+precio+"€");
+            
         }
         
 }
