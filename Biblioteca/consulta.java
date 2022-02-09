@@ -31,7 +31,7 @@ public class consulta {
             this.consultado = new microfilms();
             break;
             default:
-            this.consultado = new documento();
+                    
             break;
 
         }
