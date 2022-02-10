@@ -1,20 +1,19 @@
 package ServicioTelematico;
 
 public class usuario2 extends usuario{
-    public usuario2(int s,String dni,String nombre){
+    protected double descuento;
+    public usuario2(int s,String dni,String nombre,double d){
         super(s, dni, nombre);
+        this.descuento = d;
     }
     
-    public void conexion(int s){
-       
+    public double porcentajeDescuento(){
+        return this.descuento/100;
     }
     @Override
     public double importe(){
         double precio  = this.tiempoConex * 0.01;
-        precio = ofertas.oferta2(precio, d);
+        precio = ofertas.oferta2(precio, porcentajeDescuento());
         return precio;
-    }
-    public void reset(){
-        
     }
 }

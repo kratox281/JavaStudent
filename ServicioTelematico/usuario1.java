@@ -8,12 +8,5 @@ public class usuario1 extends usuario{
     public void conexion(int s){
         this.tiempoConex= ofertas.oferta1(s);
     }
-    public double importe(){
-        double precio  = this.tiempoConex * 0.01;
-        return precio;
-    }
-    public void reset(){
-        
-    }
     
 }

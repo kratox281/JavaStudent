@@ -18,6 +18,6 @@ public class usuario implements operaciones{
         return precio;
     }
     public void reset(){
-        
+        this.tiempoConex = 0;
     }
 }
