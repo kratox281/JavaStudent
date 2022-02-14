@@ -15,6 +15,9 @@ public class app {
     }
     public static void main(String[] args) {
         int[]numeros = new int[10];
+        for(int i =0;i<10;i++){
+            numeros[i]=i;
+        }
        imprimirPares(numeros);
        System.out.println("La suma de los numeros es : "+sumarPares(numeros));
     }
