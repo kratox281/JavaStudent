@@ -1,14 +1,14 @@
-package ArrayExercises.datos;
+package ArrayExercises.datos2;
 
 public class app {
-    public static void imprimirPares(int[]numeros){
-         for(int i =0;i<10;i+=2){
+    public static void imprimirImpares(int[]numeros){
+         for(int i =1;i<10;i+=2){
             System.out.println(numeros[i]);
         }
     }
-    public static int sumarPares(int[]numeros){
+    public static int sumarImpares(int[]numeros){
         int resultado=0;
-        for(int i =0;i<10;i+=2){
+        for(int i =1;i<10;i+=2){
             resultado+=numeros[i];
         }
         return resultado;
@@ -18,7 +18,7 @@ public class app {
         for(int i =0;i<10;i++){
             numeros[i]=i+1;
         }
-       imprimirPares(numeros);
-       System.out.println("La suma de los numeros es : "+sumarPares(numeros));
+       imprimirImpares(numeros);
+       System.out.println("La suma de los numeros es : "+sumarImpares(numeros));
     }
 }
