@@ -1,4 +1,4 @@
-package ArrayExercises.Personas;
+package Personas;
 import java.util.Scanner;
 public class app {
     static Scanner tc = new Scanner(System.in);

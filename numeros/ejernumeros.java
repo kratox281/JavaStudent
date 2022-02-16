@@ -9,22 +9,23 @@ public class ejernumeros {
     }
     public static void main(String[] args) {
         int[] numeros = new int[10];
-        boolean val  =false;
+        boolean repe=true;
         Arrays.fill(numeros,0);
         for(int i = 0; i<numeros.length;i++){
-            
-            int nuevoValor= r.nextInt(11)+1;
             do{
+            int nuevoValor= r.nextInt(11)+1;
             for(int j = 0; j<numeros.length;j++){
-                if(numeros[j]==nuevoValor){
-                    val=true;
+                if(numeros[j]==nuevoValor||numeros[j]==0){
+                    repe=true;
                 }
+                
             }
-            if(!val){
+            if(!repe){
                 numeros[i] = nuevoValor;
-                val=false;
+                
             }
-        }while(numeros[i]==0);
+        }while(repe);
+        
             
     }
     imprimirNumeros(numeros);
