@@ -9,22 +9,21 @@ public class ejernumeros {
     }
     public static void main(String[] args) {
         int[] numeros = new int[10];
-        boolean repe=true;
+        boolean ocupado;
         Arrays.fill(numeros,0);
-        for(int i = 0; i<numeros.length;i++){
-            do{
-            int nuevoValor= r.nextInt(11)+1;
-            for(int j = 0; j<numeros.length;j++){
-                if(numeros[j]==nuevoValor||numeros[j]==0){
-                    repe=true;
+        for(int i = 1; i<numeros.length;i++){
+            ocupado = true;
+            while(ocupado){
+                int nuevoValor= r.nextInt(10);
+                if(numeros[nuevoValor]==0){
+                    ocupado =false;
                 }
-                
+                if(!ocupado){
+                      numeros[nuevoValor]=i;
             }
-            if(!repe){
-                numeros[i] = nuevoValor;
-                
-            }
-        }while(repe);
+                }
+              
+            
         
             
     }
