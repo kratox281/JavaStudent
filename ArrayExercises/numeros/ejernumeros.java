@@ -13,7 +13,8 @@ public class ejernumeros {
         Arrays.fill(numeros,0);
         for(int i = 0; i<numeros.length;i++){
             
-            int nuevoValor= r.nextInt(10);
+            int nuevoValor= r.nextInt(11)+1;
+            do{
             for(int j = 0; j<numeros.length;j++){
                 if(numeros[j]==nuevoValor){
                     val=true;
@@ -21,8 +22,10 @@ public class ejernumeros {
             }
             if(!val){
                 numeros[i] = nuevoValor;
+                val=false;
             }
-            val=false;
+        }while(numeros[i]==0);
+            
     }
     imprimirNumeros(numeros);
 }}
