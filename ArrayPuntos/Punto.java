@@ -1,4 +1,4 @@
-package Punto;
+
 
 import java.awt.*;
 
@@ -6,8 +6,9 @@ public class Punto {
     private double x = 0;
     private double y = 0;
 
-    public Punto() {
-
+    public Punto(int x, int y) {
+        setX(x);
+        setY(y);
     }
 
     public void setX(int valor) {

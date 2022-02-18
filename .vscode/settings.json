@@ -1,6 +1,7 @@
 {
     "java.project.sourcePaths": [
+        "numeros",
         "Frases",
-        "numeros"
+        "ArrayPuntos"
     ]
 }
