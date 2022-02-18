@@ -5,7 +5,7 @@ public class app {
                 System.out.println(pt[i]);
             }
             else{
-                System.err.println("No hay punto");
+                System.err.println("");
             }
         }
     }
@@ -17,7 +17,7 @@ public class app {
         arrayPuntos[2]= new Punto(48,79);
         arrayPuntos[3]= new Punto(48,79);
         arrayPuntos[4]= new Punto(48,79);
-        arrayPuntos[5]= new Punto(48,79);
+        arrayPuntos[5]= new Punto(1090,79);
         arrayPuntos[6]= new Punto(48,79);
         arrayPuntos[6]= new Punto(48,79);
         arrayPuntos[7]= new Punto(48,79);
@@ -39,7 +39,7 @@ public class app {
         //     System.out.println("El puntzo "+prueba2.toString() +"no esta en el array");
     
         // }
-        Punto[] coinciden =puntosEnCuadrante(arrayPuntos, 1);
+        Punto[] coinciden = puntosEnCuadrante(arrayPuntos, 1);
         mostrarPuntos(coinciden);
        
         
@@ -56,13 +56,19 @@ public class app {
     public static Punto[] puntosEnCuadrante(Punto[] puntos,int cuadrante){
         int contador=0;
         Punto[] coincidentes = new Punto[puntos.length];
+        
+
         for(int i = 0;i<puntos.length;i++){
             if(puntos[i].getCuadrante()==cuadrante){
                 coincidentes[contador]=puntos[i];
                 contador++;
             }
         }
-        return coincidentes;
+        Punto[] devuelta = new Punto[contador];
+        for(int i = 0; i<contador;i++){
+            devuelta[i]=coincidentes[i];
+        }        
+        return devuelta;
 
     }
 
