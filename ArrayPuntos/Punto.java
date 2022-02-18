@@ -87,5 +87,28 @@ public class Punto {
        
 
     }
+    public int getCuadrante() {
+        // 1-Iz,Ar   2-De,Ar   3-Iz,Ab   4-De,Ab
+                if (this.getX() <= (Toolkit.getDefaultToolkit().getScreenSize().width / 2)) {
+                    if (this.getY() <= (Toolkit.getDefaultToolkit().getScreenSize().height / 2)) {
+        
+                        return 1;
+        
+                    } else {
+        
+                        return 2;
+                    }
+                } else {
+                    if (this.getY() <= (Toolkit.getDefaultToolkit().getScreenSize().height / 2)) {
+        
+                        return 3;
+        
+                    } else {
+        
+                        return 4;
+                    }
+                }
+        
+            }
 
 }  
