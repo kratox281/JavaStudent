@@ -2,6 +2,7 @@
 
 import java.awt.*;
 
+
 public class Punto {
     private double x = 0;
     private double y = 0;
@@ -62,9 +63,7 @@ public class Punto {
         } catch (PuntoException e) {
             System.out.println(e.getMessage());
         }
-        
-    }
-
+    } 
     public void distanciaCoor(Double x2, Double y2) {
         try {
         double x1 = this.x;
