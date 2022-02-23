@@ -18,7 +18,6 @@ public class BusquedaBinaria2 {
         //Para ordenar objetos personalizados se debe establecer el orden natural en el que se quiera que se ordene
 
         Arrays.sort(clase);
-        Arrays.binarySearch(clase,al1);
         System.out.println(Arrays.binarySearch(clase,new Alumno("Maria","Alvarez",21)));
 
 
