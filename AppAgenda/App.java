@@ -15,12 +15,13 @@ public class App {
     public static void menu(){
         try {
             System.out.println("Que quieres hacer");
-            System.out.println("1:Agregar||2:Buscar||3:Mostrar Agenda|| 4:Vaciar Agenda");
+            System.out.println("1:Agregar||2:Buscar||3:Mostrar Agenda|| 4:Vaciar Agenda || 5:Eliminar Contacto||6:Modificar Contacto");
             int elec = tc.nextInt();
             switch (elec){
                 case 1:
-                    System.out.println("Introduce el nombre del cliente y despues el tlf");
-                    a1.agregarContacto(new Contacto(tc.next(),tc.next()));
+                    String nmb = introducirNombre();
+                    String tlf = introducirTlf();
+                    a1.agregarContacto(new Contacto(nmb,tlf));
                     break;
                 case 2:
                     busquedas();
@@ -31,6 +32,19 @@ public class App {
                 case 4:
                     a1.vaciarAgenda();
                     break;
+                case 5:
+                    nmb = introducirNombre();
+                    tlf = introducirTlf();
+                    a1.eliminarContacto(new Contacto(nmb,tlf));
+                    break;
+                case 6:
+                    System.out.println("Introduce los datos del contacto a modificar");
+                    nmb=introducirNombre();
+                    tlf= introducirTlf();
+                    System.out.println("Introduce los nuevos datos del contacto");
+                    String nnmb = introducirNombre();
+                    String ntlf = introducirTlf();
+                    a1.modificarContacto(new Contacto(nmb,tlf),new Contacto(nnmb,ntlf));
 
             }
         }catch (InputMismatchException ex){
@@ -38,7 +52,17 @@ public class App {
         }
 
     }
+    public static String introducirNombre (){
+        System.out.println("Introduce el nombre del cliente");
+        String nmb = tc.next();
+        return nmb;
+    }
+     public static String introducirTlf (){
+         System.out.println("Introduce el numero");
+         String tlf = tc.next();
+         return tlf;
 
+    }
     public static void busquedas() {
         try {
             System.out.println("Buscar por numero o por nombre");

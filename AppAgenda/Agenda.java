@@ -6,10 +6,11 @@ import java.util.Arrays;
 
 public class Agenda {
      private Contacto[] contactos= new Contacto[100];
+     private Contacto vacio = new Contacto("","");
      public int cont=0;
 
     public Agenda() {
-        Arrays.fill(contactos,new Contacto("",""));
+        Arrays.fill(contactos,vacio);
     }
     public void agregarContacto(Contacto nuevo){
         if(comprobarExistencia(nuevo)){
@@ -45,11 +46,12 @@ public class Agenda {
 
     }
     public boolean comprobarExistencia(Contacto nuevo){
-        if(Arrays.binarySearch(this.contactos,nuevo)>=0){
-            return true;
-        }else {
-            return false;
+        for (int i = 0; i <this.contactos.length; i++) {
+            if (this.contactos[i].compareTo(nuevo)==0) {
+                return true;
+            }
         }
+        return false;
     }
 
     public void imprimirAgenda(){
@@ -57,16 +59,46 @@ public class Agenda {
     }
     public void mostrar(Contacto[] mostrar){
         for (int i = 0; i < mostrar.length; i++) {
-            if(mostrar[i]!=null){
+            if(mostrar[i].compareTo(vacio)!=0){
                 System.out.println(mostrar[i].toString());
             }
 
 
         }
     }
+    public void eliminarContacto(Contacto nuevo){
+        for (int i = 0; i <this.contactos.length; i++) {
+            if (this.contactos[i].compareTo(nuevo)==0) {
+                this.contactos[i]=vacio;
+                cont--;
+            }
+        }
+        reescribirAgenda();
 
+    }
+    public void modificarContacto(Contacto viejo,Contacto nuevo){
+        for (int i = 0; i <this.contactos.length; i++) {
+            if (this.contactos[i].compareTo(viejo)==0) {
+                this.contactos[i]=nuevo;
+            }
+        }
+    }
+    public void reescribirAgenda(){
+        Contacto[] escritos = new Contacto[100];
+        Arrays.fill(escritos,vacio);
+        for (int i = 0; i < contactos.length; i++) {
+            int b =0;
+            if(this.contactos[i].compareTo(vacio)!=0) {
+                escritos[b] = contactos[i];
+                b++;
+            }
+        }
+        for (int i = 0; i <escritos.length ; i++) {
+            contactos[i]=escritos[i];
+        }
+    }
     public void  vaciarAgenda(){
-        Arrays.fill(contactos,new Contacto("",""));
+        Arrays.fill(contactos,vacio);
     }
 
 }
