@@ -20,7 +20,7 @@ public class App {
             switch (elec){
                 case 1:
                     String nmb = introducirNombre();
-                    String tlf = introducirTlf();
+                    int tlf = introducirTlf();
                     a1.agregarContacto(new Contacto(nmb,tlf));
                     break;
                 case 2:
@@ -43,7 +43,7 @@ public class App {
                     tlf= introducirTlf();
                     System.out.println("Introduce los nuevos datos del contacto");
                     String nnmb = introducirNombre();
-                    String ntlf = introducirTlf();
+                    int ntlf = introducirTlf();
                     a1.modificarContacto(new Contacto(nmb,tlf),new Contacto(nnmb,ntlf));
 
             }
@@ -57,9 +57,9 @@ public class App {
         String nmb = tc.next();
         return nmb;
     }
-     public static String introducirTlf (){
+     public static int introducirTlf (){
          System.out.println("Introduce el numero");
-         String tlf = tc.next();
+         int tlf = tc.nextInt();
          return tlf;
 
     }
@@ -71,7 +71,7 @@ public class App {
             switch (elec){
                 case 1:
                     System.out.println("Introduce el numero a buscar");
-                    a1.busquedaTlf(tc.next());
+                    a1.busquedaTlf(tc.nextInt());
                     break;
                 case 2:
                     System.out.println("Introduce el nombre a buscar");
