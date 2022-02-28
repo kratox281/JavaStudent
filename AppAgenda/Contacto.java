@@ -6,7 +6,7 @@ public class Contacto implements Comparable<Contacto>{
     static int cont=0;
     protected int id;
     protected String nombre;
-    protected String tlf;
+    protected Integer tlf;
 
     public Contacto(String nombre) {
         this.nombre = nombre;
@@ -14,7 +14,7 @@ public class Contacto implements Comparable<Contacto>{
         setId(cont);
     }
 
-    public Contacto(String nombre, String tlf) {
+    public Contacto(String nombre, int tlf) {
         this.nombre = nombre;
         this.tlf = tlf;
         cont++;
@@ -38,11 +38,11 @@ public class Contacto implements Comparable<Contacto>{
         this.nombre = nombre;
     }
 
-    public String getTlf() {
+    public int getTlf() {
         return tlf;
     }
 
-    public void setTlf(String tlf) {
+    public void setTlf(int tlf) {
         this.tlf = tlf;
     }
 
@@ -58,17 +58,17 @@ public class Contacto implements Comparable<Contacto>{
     @Override
     public int compareTo(Contacto nuevo) {
         return this.nombre.compareTo(nuevo.nombre)+
-                this.tlf.compareTo(nuevo.tlf);
+                this.tlf.compareTo(tlf);
     }
 
-    public int comprobarNombre(String nombre){
+    public boolean comprobarNombre(String nombre){
 
-        return this.nombre.compareTo(nombre);
+        return this.nombre.equals(nombre);
     }
 
-    public int comprobarTlf(String telefono){
+    public boolean comprobarTlf(int telefono){
 
-        return this.tlf.compareTo(telefono);
+        return this.tlf.equals(telefono);
 
     }
 }

@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class Agenda {
      private Contacto[] contactos= new Contacto[100];
-     private Contacto vacio = new Contacto("","");
+     private Contacto vacio = new Contacto("",0);
      public int cont=0;
 
     public Agenda() {
@@ -27,7 +27,7 @@ public class Agenda {
         Arrays.fill(resultados,vacio);
         int coincidencias = 0;
         for (int i = 0; i <this.contactos.length; i++) {
-            if (this.contactos[i].comprobarNombre(nombre)==0) {
+            if (this.contactos[i].comprobarNombre(nombre)) {
                 resultados[coincidencias] = contactos[i];
                 coincidencias++;
             }
@@ -35,12 +35,12 @@ public class Agenda {
         mostrar(resultados);
 
     }
-    public void busquedaTlf(String telfono){
+    public void busquedaTlf(int telfono){
         Contacto[] resultados= new Contacto[100];
         Arrays.fill(resultados,vacio);
         int coincidencias =0;
         for (int i = 0; i <this.contactos.length; i++) {
-            if (this.contactos[i].comprobarTlf(telfono)==0) {
+            if (this.contactos[i].comprobarTlf(telfono)) {
                 resultados[coincidencias] = contactos[i];
                 coincidencias++;
             }
