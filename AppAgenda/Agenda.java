@@ -12,6 +12,7 @@ public class Agenda {
     public Agenda() {
         Arrays.fill(contactos,vacio);
     }
+
     public void agregarContacto(Contacto nuevo){
         if(comprobarExistencia(nuevo)){
             System.out.println("Ya existe ese contacto");
@@ -23,7 +24,8 @@ public class Agenda {
 
     public void busquedaNombre(String nombre){
         Contacto[] resultados= new Contacto[100];
-        int coincidencias =0;
+        Arrays.fill(resultados,vacio);
+        int coincidencias = 0;
         for (int i = 0; i <this.contactos.length; i++) {
             if (this.contactos[i].comprobarNombre(nombre)==0) {
                 resultados[coincidencias] = contactos[i];
@@ -35,6 +37,7 @@ public class Agenda {
     }
     public void busquedaTlf(String telfono){
         Contacto[] resultados= new Contacto[100];
+        Arrays.fill(resultados,vacio);
         int coincidencias =0;
         for (int i = 0; i <this.contactos.length; i++) {
             if (this.contactos[i].comprobarTlf(telfono)==0) {
@@ -58,7 +61,7 @@ public class Agenda {
         mostrar(this.contactos);
     }
     public void mostrar(Contacto[] mostrar){
-        for (int i = 0; i < mostrar.length; i++) {
+        for (int i = 0; i < mostrar.length-1; i++) {
             if(mostrar[i].compareTo(vacio)!=0){
                 System.out.println(mostrar[i].toString());
             }
