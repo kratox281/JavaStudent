@@ -1,5 +1,6 @@
 package AppAgenda;
 
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -57,10 +58,10 @@ public class App {
         String nmb = tc.next();
         return nmb;
     }
-     public static int introducirTlf (){
-         System.out.println("Introduce el numero");
-         int tlf = tc.nextInt();
-         return tlf;
+    public static int introducirTlf (){
+        System.out.println("Introduce el numero");
+        int tlf = tc.nextInt();
+        return tlf;
 
     }
     public static void busquedas() {

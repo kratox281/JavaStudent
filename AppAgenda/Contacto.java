@@ -1,7 +1,5 @@
 package AppAgenda;
 
-import ArraysClase.Alumno;
-
 public class Contacto implements Comparable<Contacto>{
     static int cont=0;
     protected int id;
@@ -58,7 +56,7 @@ public class Contacto implements Comparable<Contacto>{
     @Override
     public int compareTo(Contacto nuevo) {
         return this.nombre.compareTo(nuevo.nombre)+
-                this.tlf.compareTo(tlf);
+                this.tlf.compareTo(nuevo.tlf);
     }
 
     public boolean comprobarNombre(String nombre){

@@ -1,13 +1,13 @@
 package AppAgenda;
 
-import ArraysClase.Alumno;
+
 
 import java.util.Arrays;
 
 public class Agenda {
-     private Contacto[] contactos= new Contacto[100];
-     private Contacto vacio = new Contacto("",0);
-     public int cont=0;
+    private Contacto[] contactos= new Contacto[100];
+    private Contacto vacio = new Contacto("",0);
+    public int cont=0;
 
     public Agenda() {
         Arrays.fill(contactos,vacio);
