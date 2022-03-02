@@ -16,7 +16,7 @@ public class App {
     public static void menu(){
         try {
             System.out.println("Que quieres hacer");
-            System.out.println("1:Agregar||2:Buscar||3:Mostrar Agenda|| 4:Vaciar Agenda || 5:Eliminar Contacto||6:Modificar Contacto");
+            System.out.println("1:Agregar||2:Buscar||3:Mostrar Agenda|| 4:Vaciar Agenda || 5:Eliminar Contacto||6:Modificar Contacto||7:Salir");
             int elec = tc.nextInt();
             switch (elec){
                 case 1:
@@ -47,14 +47,20 @@ public class App {
                     int ntlf = introducirTlf();
                     a1.modificarContacto(new Contacto(nmb,tlf),new Contacto(nnmb,ntlf));
 
+                    break;
+                case 7:
+                    x++;
+                    break;
+
             }
         }catch (InputMismatchException ex){
-            System.out.println("Error en los datos");
+            System.out.println("Error en los datos introducidos");
+            x++;
         }
 
     }
     public static String introducirNombre (){
-        System.out.println("Introduce el nombre del cliente");
+        System.out.println("Introduce el nombre del contacto");
         String nmb = tc.next();
         return nmb;
     }
@@ -80,7 +86,8 @@ public class App {
                     break;
             }
         }catch (InputMismatchException e){
-            System.out.println("Error en los datos");
+            System.out.println("Error en los datos introducidos");
+            x++;
         }
 
     }
