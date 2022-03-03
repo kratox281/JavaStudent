@@ -60,6 +60,7 @@ public class Agenda {
     public void imprimirAgenda(){
         mostrar(this.contactos);
     }
+
     public void mostrar(Contacto[] mostrar){
         for (int i = 0; i < mostrar.length-1; i++) {
             if(mostrar[i].compareTo(vacio)!=0){

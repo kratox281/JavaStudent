@@ -60,13 +60,17 @@ public class Contacto implements Comparable<Contacto>{
     }
 
     public boolean comprobarNombre(String nombre){
-
-        return this.nombre.equals(nombre);
+        if(this.nombre.equals(nombre)){
+            return true;
+        }
+        return false;
     }
 
     public boolean comprobarTlf(int telefono){
-
-        return this.tlf.equals(telefono);
+            if (this.tlf.equals(telefono)){
+                return true;
+            }
+        return false;
 
     }
 }
