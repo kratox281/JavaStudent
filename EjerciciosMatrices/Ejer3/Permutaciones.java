@@ -17,32 +17,23 @@ public class Permutaciones {
         return matriz1;
     }
     public static int[][] permutaFilas(int[][] original,int n1,int n2){
-        int[][] cambiada = original;
-        for(int i = 0;i< original[0].length;i++){
-            cambiada[n1][i]=original[n2][i];
+        int[] guardar = original[n1];
+        original[n1]=original[n2];
+        original[n2]=guardar;
 
-        }
-        for(int j = 0;j< original[0].length;j++){
-            cambiada[n2][j]=original[n1][j];
-
-        }
-
-
-        return cambiada;
+        return original;
     }
     public static int[][] permutaColumnas(int[][] original,int n1,int n2){
-        int[][] cambiada = original;
-        for(int i = 0;i< original.length;i++){
-            cambiada[i][n1]=original[i][n2];
+        int guardar;
 
-        }
-        for(int i = 0;i< original.length;i++){
-            cambiada[i][n2] = original[i][n1];
-
+        for (int i = 0; i < original.length; i++) {
+            guardar = original[i][n1];
+            original[i][n1]=original[i][n2];
+            original[i][n2]=guardar;
         }
 
 
-        return cambiada;
+        return original;
     }
 
     public static void imprimirMatriz(int[][] matriz){
