@@ -18,9 +18,9 @@ public class Matriz{
     }
 
     public static void imprimirMatriz(int[][] matriz){
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j <matriz[0].length ; j++) {
-                System.out.print(matriz[i][j]+" ");
+        for (int[] ints : matriz) {
+            for (int j = 0; j < matriz[0].length; j++) {
+                System.out.print(ints[j] + " ");
 
             }
             System.out.println();
