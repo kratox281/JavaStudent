@@ -3,6 +3,7 @@ package LecturaEscritura;
 import javax.security.sasl.SaslClient;
 import javax.swing.*;
 import java.io.File;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Ejercicio1Files {
@@ -17,11 +18,13 @@ public class Ejercicio1Files {
 
             for(File f : jfc.getSelectedFile().listFiles()){
                 if(f.isDirectory()){
-                    System.out.println("<DIR>"+"       "+f.getName());
+                    Date modi =new Date(f.lastModified()) ;
+                    System.out.println(modi+"<DIR>"+"       "+f.getName());
                 directorios++;
                 }
                 if(f.isFile()){
-                    System.out.println("     "+f.length()+f.getName());
+                    Date modi =new Date(f.lastModified()) ;
+                    System.out.println(modi+"     "+f.length()+f.getName());
                 archivos++;
                 }
             }
