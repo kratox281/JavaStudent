@@ -1,15 +1,18 @@
 package EjerciciosMatrices.Ejer1;
 
-public class Matriz{
+import java.util.Random;
 
+public class Matriz{
+static Random r = new Random();
     public static int[][] generarMatriz(){
         int[][] matriz1 = new int[5][5];
         for (int i = 0; i < matriz1.length; i++) {
             for (int j = 0; j <matriz1[0].length ; j++) {
+                int rellenar = r.nextInt(11);
                 if (i%2==0){
-                    matriz1[i][j]=2*(i+1)*(j+1);
+                    matriz1[i][j]=2*rellenar;
                 }else {
-                    matriz1[i][j]=3*(i+1)*(j+1);
+                    matriz1[i][j]=3*rellenar;
                 }
             }
 
